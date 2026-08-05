@@ -27,7 +27,8 @@ Cadeia: **VP-FDTH-JL**.
 
 - [x] `fdt_cat`, auto kind
 - [x] NEWS.md, CI workflow
-- [ ] GitHub público após OK STATghost
+- [x] GitHub público
+- [x] Glossário PT-BR/EN adaptado para Julia
 - [ ] Julia General
 
 ## Decisões
@@ -36,7 +37,7 @@ Cadeia: **VP-FDTH-JL**.
 |--------|---------|
 | Paridade numérica | Python (Scott ddof=0, start+end, quantile `pos; by`) |
 | Plots/DataFrames | weakdeps + extensions |
-| Publicação | só depois do teste final humano |
+| Publicação | GitHub público; General após CI verde |
 
 ## VPs
 

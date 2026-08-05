@@ -2,13 +2,15 @@
 
 **Updated:** 2026-08-05  
 **Scope:** public GitHub — [jcfaria/fdth-julia](https://github.com/jcfaria/fdth-julia)  
-**Version:** 0.2.0
+**Version:** 0.2.0  
+**Glossário:** [`../acronyms/`](../acronyms/) (PT preferido)
 
 ## Status
 
 - Remoto público ativo
 - Pacote ensinável 0.2.0 no `main`
-- CI workflow: restaurar após scope `workflow` no token `gh`
+- Glossário PT-BR/EN adaptado para Julia
+- CI workflow pronto para Julia 1.10 e estável
 - Julia General: a preparar (CI verde + docs)
 
 ## Install (dev)

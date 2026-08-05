@@ -2,6 +2,7 @@
 
 ## 0.2.0 — 2026-08-05
 
+- Public repository: https://github.com/jcfaria/fdth-julia
 - Numerical FDT with Sturges / Scott / FD, padding, full f/rf/cf columns
 - Summaries: `mean`, `median`, `var`, `std`/`sd`, `quantile`, `mfv`, `amplitude`/`ta`
 - `make_fdt` rebuild from frequencies
@@ -11,6 +12,8 @@
 - Formatted `summary` / `display` tables
 - Optional extensions: Plots.jl, DataFrames.jl
 - Golden tests aligned with R/Python fdth
+- PT-BR / English project glossary adapted for Julia
+- GitHub Actions CI on Julia 1.10 and current stable
 
 ## 0.1.0 — 2026-08-05
 

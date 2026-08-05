@@ -1,6 +1,6 @@
 # Fdth.jl — Frequency distribution tables for Julia
 
-**Local development repository** for a Julia port of:
+Public repository for a Julia port of:
 
 | Language | Project |
 |----------|---------|
@@ -8,7 +8,7 @@
 | Python | [jcfaria/fdth-python](https://github.com/jcfaria/fdth-python) (`pip install fdth`) |
 | Julia | [jcfaria/fdth-julia](https://github.com/jcfaria/fdth-julia) (`Fdth`) — GitHub public; Julia General later |
 
-Target classroom / **STATghost** validation. Public GitHub: [jcfaria/fdth-julia](https://github.com/jcfaria/fdth-julia). Julia General registry after CI stays green.
+Target classroom / **STATghost** validation. Julia General registration follows green CI.
 
 ## Status
 
