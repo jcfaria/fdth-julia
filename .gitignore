@@ -1,0 +1,18 @@
+# Local Julia artifacts
+Manifest.toml
+*.jl.cov
+*.jl.*.cov
+*.jl.mem
+docs/build/
+docs/site/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Env
+.venv/
+venv/
+__pycache__/

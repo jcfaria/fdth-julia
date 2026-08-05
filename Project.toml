@@ -1,0 +1,17 @@
+name = "Fdth"
+uuid = "fed4b0ea-04fc-47fb-9080-d25d1940ffc3"
+authors = ["José Cláudio Faria <joseclaudio.faria@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+# Add when implementing: DataFrames, StatsBase, Plots / Makie, etc.
+
+[compat]
+julia = "1.10"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
+
