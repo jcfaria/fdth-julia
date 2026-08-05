@@ -1,0 +1,25 @@
+---
+description: Prefer small/medium source files (STATghost-style)
+globs: src/**/*.jl,ext/**/*.jl,test/**/*.jl,examples/**/*.jl
+alwaysApply: false
+---
+
+# Small / medium files
+
+Prefer **small and medium** Julia files, in the spirit of STATghost (concern-based units, easy to teach and review).
+
+Soft targets (guideline, not hard law):
+
+| Tier | Lines | Use |
+| --- | ---: | --- |
+| Small | ≤ ~80 | one concern (types, auto dispatch, one plot helper) |
+| Medium | ~80–160 | coherent feature (binning, summaries, categorical) |
+| Avoid | ≫ 200 | split by concern before growing further |
+
+Rules of thumb:
+
+1. One primary concern per file; name the file after that concern.
+2. Grow by **adding files**, not by stuffing `Fdth.jl` or a catch-all module file.
+3. `src/Fdth.jl` stays a thin `include` hub + exports.
+4. Tests may group related cases, but prefer focused `@testset` blocks; split `test/` when a file exceeds ~medium.
+5. Do not micro-split (dozens of 10-line files) — readability over fragmentation.

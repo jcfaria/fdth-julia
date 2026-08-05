@@ -38,6 +38,7 @@ Cadeia: **VP-FDTH-JL**.
 | Paridade numérica | Python (Scott ddof=0, start+end, quantile `pos; by`) |
 | Plots/DataFrames | weakdeps + extensions |
 | Publicação | GitHub público; General após CI verde |
+| Tamanho de ficheiros | **D5 [F]** pequenos/médios (≤~160 linhas por concern; estilo STATghost) |
 
 ## VPs
 

@@ -11,6 +11,7 @@
 - Pacote ensinável 0.2.0 no `main`
 - Glossário PT-BR/EN adaptado para Julia
 - CI workflow pronto para Julia 1.10 e estável
+- Preferência **D5 [F]**: ficheiros pequenos/médios (estilo STATghost)
 - Julia General: a preparar (CI verde + docs)
 
 ## Install (dev)

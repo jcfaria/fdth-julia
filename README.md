@@ -52,11 +52,30 @@ julia --project=. examples/quickstart.jl
 ## Design notes
 
 - Julia idioms (multiple dispatch); R/Python examples as behavioural reference.
+- Small/medium files grouped by concern (STATghost-style); `Fdth.jl` stays a thin include/export hub.
 - `end_` = upper class limit (`end` is reserved).
 - Plots & DataFrames are **optional extensions** (core stays light for STATghost).
-- License: GPL-2.0.
+
+---
 
 ## Author / Maintainer
 
-**Faria, J. C.** — UESC / DCEX — Ilhéus, Bahia, Brazil  
-joseclaudio.faria@gmail.com
+**Faria, J. C.**  
+Universidade Estadual de Santa Cruz — UESC  
+Departamento de Ciências Exatas — DCEX  
+Ilhéus — Bahia — Brazil
+
+- Email: [joseclaudio.faria@gmail.com](mailto:joseclaudio.faria@gmail.com)
+- GitHub: [jcfaria](https://github.com/jcfaria)
+- R package: [GitHub](https://github.com/jcfaria/fdth) · [CRAN](https://cran.r-project.org/package=fdth)
+- Python package: [GitHub](https://github.com/jcfaria/fdth-python) · [PyPI](https://pypi.org/project/fdth/)
+- Julia package: [GitHub](https://github.com/jcfaria/fdth-julia)
+
+---
+
+## License
+
+This package is free software under the
+**GNU General Public License, version 2** (**GPL-2.0**).
+
+See [LICENSE](LICENSE) for the full text.

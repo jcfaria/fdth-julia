@@ -80,4 +80,11 @@ acronyms  This glossary (PT/EN mirror)
 examples  Demo / STATghost scripts (`examples/`)
 ext     Optional package extensions (`ext/`)
 
+----
+Code style (decisions)
+----
+D5 [F]  Prefer small/medium files by concern (STATghost-style).
+        Soft: small ≤~80 lines; medium ~80–160; avoid ≫200 without a split.
+        Cursor rule: `.cursor/rules/fdth-small-files.mdc`
+
 ================================================================================

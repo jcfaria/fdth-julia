@@ -14,6 +14,7 @@
 - Golden tests aligned with R/Python fdth
 - PT-BR / English project glossary adapted for Julia
 - GitHub Actions CI on Julia 1.10 and current stable
+- D5 project convention: small/medium files by concern; tests split by feature
 
 ## 0.1.0 — 2026-08-05
 

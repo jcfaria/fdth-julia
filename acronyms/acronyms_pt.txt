@@ -81,4 +81,11 @@ acronyms  Este glossário (espelho PT/EN)
 examples  Scripts de demonstração / STATghost (`examples/`)
 ext     Extensões opcionais do pacote (`ext/`)
 
+----
+Estilo de código (decisões)
+----
+D5 [F]  Ficheiros pequenos/médios por concern (estilo STATghost).
+        Soft: pequeno ≤~80 linhas; médio ~80–160; evitar ≫200 sem split.
+        Regra Cursor: `.cursor/rules/fdth-small-files.mdc`
+
 ================================================================================
