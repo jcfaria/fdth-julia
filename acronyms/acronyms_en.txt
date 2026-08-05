@@ -1,0 +1,83 @@
+================================================================================
+ACRONYMS / GLOSSARY — Fdth.jl / Julia (English)
+================================================================================
+Updated: 2026-08-05
+Twin (PT-BR): acronyms_pt.txt
+Use: chat / commits / CPR. Keep short; expand here, not in code.
+Any add / edit / rename / delete must update the PT twin in the same task.
+Origin: adapted from `fdth-python/acronyms/` (and STATghost pack).
+
+----
+Git flow (human → AI)
+----
+CP      Commit + Push on the active local branch (`work` — always)
+CPMW    Commit + Push + Main merge + Push main + return to `work`
+        (order: commit → push `work` → merge into `main` → push `main` → `work`)
+        After CPMW the local checkout must remain on `work`.
+AN      Update public notes: `NEWS.md` **and** README (and docs if any).
+        Required before CP/CPMW that change user-visible behaviour or version.
+VCP     Vamos Consolidar o Projeto — full ship pipeline (human GO). Typical
+        order for Fdth.jl → Julia General:
+        1) AN (`NEWS.md` + README / docs)
+        2) CP
+        3) CPMW (promote `main`, return to `work`)
+        4) green CI on GitHub Actions
+        5) local rehearsal (`Pkg.test()` + install from URL)
+        6) register / tag (Julia General + GitHub Release)
+        Implies push + promote `main` + publish; not a partial CP alone.
+
+----
+Planning / quality
+----
+CPR     Production Control / Roadmap (VP chain)
+        Living file: `w_todo/02_CPR_checklist_parity.md`
+SAP     Current Project Situation (snapshot)
+        Living file: `w_todo/01_SAP.md`
+VP      Partial Verification (CPR item; e.g. VP-FDTH-JL-3)
+BOK     Bom OK — VP criteria met (SMOKE / SJ / ST / …)
+TF      Teste Feito — status that checks for the current work are done
+        (pair with BOK in chat). Not a command to re-run gates; to run a
+        gate, say SMOKE / SJ / ST (or Dev mode).
+SJ      Smoke Julia — suite via `julia --project=. -e "using Pkg; Pkg.test()"`
+ST      Smoke Total — SJ + distribution / CI checks when applicable
+SJD     Smoke Dev Julia — fast subset of tests (files or cases under the
+        current VP focus). In Dev prefer SJD before full SJ.
+SMOKE   Fast minimal import/API smoke
+        (e.g. `julia --project=. -e "using Fdth; println(fdt([1,2,3]))"`)
+SG      Smoke STATghost — human validation in the STATghost environment
+D*      Provisional/closed decision (record under `w_todo/` when needed)
+        [P] provisional  [F] closed
+        (Not the same as Smoke **Dev** suffix on SJD.)
+
+----
+Product / packaging
+----
+FDTH    Family brand: R `fdth` / Python `fdth` / Julia `Fdth`
+FDT     Frequency Distribution Table
+R-FDTH  Original R package (CRAN / https://github.com/jcfaria/fdth)
+PY-FDTH Python package (PyPI / https://github.com/jcfaria/fdth-python)
+JL-FDTH This Julia package (`Fdth` / https://github.com/jcfaria/fdth-julia)
+GENERAL Julia General registry — public Julia package registry
+PKG     `Pkg` manager (Project.toml / Manifest / add / test)
+UUID    Package id in `Project.toml`
+EXT     Package extension (e.g. Plots, DataFrames via weakdeps)
+VP-FDTH-JL  VP prefix for this Julia chain (VP-FDTH-JL-1..N);
+            do not reuse numbers from R/Python/STATG
+
+----
+Branches
+----
+work    active development — **always the active local branch** (D2 [F]).
+        Do not day-to-day develop on `main`; after any merge/CPMW switch
+        straight back to `work`.
+main    stable / releases (promote via CPMW; not a routine checkout)
+
+----
+Working folders
+----
+w_todo  SAP / CPR texts (`w_todo/`) — not package code
+acronyms  This glossary (PT/EN mirror)
+examples  Demo / STATghost scripts (`examples/`)
+ext     Optional package extensions (`ext/`)
+
+================================================================================

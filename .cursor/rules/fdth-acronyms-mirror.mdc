@@ -1,0 +1,15 @@
+---
+description: Keep acronyms PT/EN twins in sync for Fdth.jl
+globs: acronyms/**
+alwaysApply: false
+---
+
+# Fdth.jl acronyms mirror
+
+When editing anything under `acronyms/`:
+
+1. Prefer PT-BR with the owner (`acronyms_pt.txt`); keep `acronyms_en.txt` as the twin.
+2. Any **add / edit / rename / delete** of a key or section must update **both** twins in the same task.
+3. Do not put glossary prose in package source; expand meanings only in `acronyms/`.
+4. `acronyms.txt` is a pointer stub — do not use it as the glossary body.
+5. Smoke gates for this repo: **SJ** (`Pkg.test`), **SMOKE** (minimal `using Fdth`), **SG** (STATghost human).

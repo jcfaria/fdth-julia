@@ -23,7 +23,7 @@ Local **`0.2.0`** — teachable core ready for **final STATghost** testing:
 | `plot_series` / `plot` | Plots.jl extension |
 | `fdt(df; by=…)` | DataFrames.jl extension |
 
-See [`NEWS.md`](NEWS.md) and [`w_todo/`](w_todo/).
+See [`NEWS.md`](NEWS.md), [`w_todo/`](w_todo/), and glossary [`acronyms/`](acronyms/).
 
 ## Develop
 

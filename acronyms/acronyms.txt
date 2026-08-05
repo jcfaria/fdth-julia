@@ -1,0 +1,12 @@
+================================================================================
+Fdth.jl (Julia) glossary — pointer (compat)
+================================================================================
+The glossary is a **language mirror** (same keys; prose translated):
+
+  PT-BR (prefer for chat with owner):  acronyms_pt.txt
+  English:                             acronyms_en.txt
+
+Folder note: README.md
+
+Do not edit this stub as the glossary body — edit both twins instead.
+================================================================================

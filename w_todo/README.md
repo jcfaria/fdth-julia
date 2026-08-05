@@ -3,6 +3,7 @@
 Pasta de trabalho para SAP / CPR do pacote **Fdth.jl**.
 
 Não contém o código do pacote (esse continua em `src/`).  
+Siglas: [`../acronyms/`](../acronyms/) (preferir `acronyms_pt.txt`).  
 Referências: R [fdth](https://github.com/jcfaria/fdth), Python [fdth-python](https://github.com/jcfaria/fdth-python).
 
 ## Packs nesta pasta
@@ -17,3 +18,4 @@ Referências: R [fdth](https://github.com/jcfaria/fdth), Python [fdth-python](ht
 1. Atualizar o **SAP** quando o estado do projeto mudar.
 2. Marcar itens no **CPR** conforme forem concluídos (BOK no chat).
 3. Preferir idioms Julia (multiple dispatch); R/Python `examples/` como referência de comportamento.
+4. Comandos de fluxo (CP / CPMW / SJ / SG): ver glossário.
