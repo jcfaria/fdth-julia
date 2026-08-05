@@ -6,34 +6,44 @@
 |----------|---------|
 | R | [jcfaria/fdth](https://github.com/jcfaria/fdth) (CRAN) |
 | Python | [jcfaria/fdth-python](https://github.com/jcfaria/fdth-python) (`pip install fdth`) |
-| Julia | **this repo** (`Fdth`) — not published yet |
+| Julia | [jcfaria/fdth-julia](https://github.com/jcfaria/fdth-julia) (`Fdth`) — GitHub public; Julia General later |
+
+Target classroom / **STATghost** validation. Public GitHub: [jcfaria/fdth-julia](https://github.com/jcfaria/fdth-julia). Julia General registry after CI stays green.
 
 ## Status
 
-Early skeleton (`0.1.0`):
+Local **`0.2.0`** — teachable core ready for **final STATghost** testing:
 
-- Package module `Fdth`
-- Stub `fdt(::AbstractVector{<:Real})` → `NumericalFDT` (Sturges / optional `k`)
-- Basic tests
+| API | Role |
+|-----|------|
+| `fdt` | numerical, auto categorical, matrix/dict → `MultipleFDT` |
+| `fdt_cat` / `make_fdt` | categorical / rebuild |
+| `mean` … `mfv` / `amplitude` | grouped summaries |
+| `summary` / `display` | formatted classroom tables |
+| `plot_series` / `plot` | Plots.jl extension |
+| `fdt(df; by=…)` | DataFrames.jl extension |
 
-Roadmap (high level): categorical FDT, multi-column / grouping, plots, summary measures, parity checks against R and Python examples.
+See [`NEWS.md`](NEWS.md) and [`w_todo/`](w_todo/).
 
 ## Develop
 
 ```julia
-# from the repository root
 julia --project=.
 ```
 
 ```julia
-using Pkg
-Pkg.instantiate()   # when dependencies are added
-Pkg.test()
-using Fdth
-fdt([1, 2, 3, 4, 5]; k=2)
-```
+using Pkg; Pkg.instantiate(); Pkg.test()
+using Fdth, Statistics
+t = fdt([1, 2, 6, 8, 10])
+mean(t), sd(t), mfv(t)
 
-Quick example:
+# multiple + grouping
+fdt([1 10; 2 20; 3 30]; colnames=["x","y"], by=["A","A","B"])
+
+# optional
+# using Plots; plot(t; type=:fh)
+# using DataFrames; fdt(df; by=:group)
+```
 
 ```text
 julia --project=. examples/quickstart.jl
@@ -41,9 +51,10 @@ julia --project=. examples/quickstart.jl
 
 ## Design notes
 
-- Prefer Julia idioms (multiple dispatch) over a 1:1 copy of the Python classes.
-- Use R `examples/` and Python `examples/` as behavioural references.
-- License: GPL-2.0 (same family as R/Python **fdth**).
+- Julia idioms (multiple dispatch); R/Python examples as behavioural reference.
+- `end_` = upper class limit (`end` is reserved).
+- Plots & DataFrames are **optional extensions** (core stays light for STATghost).
+- License: GPL-2.0.
 
 ## Author / Maintainer
 

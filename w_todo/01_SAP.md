@@ -1,19 +1,39 @@
 # SAP — Fdth.jl (Julia port)
 
 **Updated:** 2026-08-05  
-**Scope:** local-only repository while the port starts  
-**Siblings:** R `fdth`, Python `fdth` (`jcfaria/fdth-python`)
+**Scope:** ready for **final STATghost** smoke-test; then public remote  
+**Siblings:** R `fdth` (CRAN), Python `fdth` (PyPI)  
+**CPR:** [`02_CPR_checklist_parity.md`](02_CPR_checklist_parity.md)  
+**Version:** 0.2.0
 
 ## Status
 
-- Skeleton package `Fdth` 0.1.0
-- Stub numerical `fdt`
-- No remote / no Julia General registry yet
+Teachable surface complete for classroom use:
 
-## Next VPs (draft)
+| Área | Estado |
+|------|--------|
+| Numérico + binning + tabela | OK |
+| Medidas resumidas | OK |
+| Categórico + auto kind | OK |
+| Multiple / by / Dict / matrix | OK |
+| `summary` / display formatado | OK |
+| Plots / DataFrames | extensões opcionais |
+| Testes | suite local |
+| CI | workflow pronto (ativa no remoto) |
+| Remoto / General | **após** OK no STATghost |
 
-1. Harden numerical binning (FD, Scott, …) vs R/Python
-2. Categorical FDT
-3. DataFrame / multi-column + `by`
-4. Plotting backend choice (Plots vs Makie)
-5. Public GitHub when API is stable enough to teach with
+## Para o teste final (STATghost)
+
+```julia
+using Pkg
+Pkg.activate("/caminho/para/fdth-julia")  # ou --project=
+Pkg.instantiate()
+Pkg.test()
+include("examples/quickstart.jl")
+```
+
+## Próximo (após OK humano)
+
+1. `git remote` + GitHub público `jcfaria/fdth-julia`
+2. Tag `v0.2.0`
+3. Preparar registo Julia General (docs mínimas + CI verde)

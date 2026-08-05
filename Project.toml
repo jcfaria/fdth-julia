@@ -1,12 +1,25 @@
 name = "Fdth"
 uuid = "fed4b0ea-04fc-47fb-9080-d25d1940ffc3"
 authors = ["José Cláudio Faria <joseclaudio.faria@gmail.com>"]
-version = "0.1.0"
+version = "0.2.0"
 
 [deps]
-# Add when implementing: DataFrames, StatsBase, Plots / Makie, etc.
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+
+[weakdeps]
+DataFrames = "a93c6f00-e57d-5684-b934-d3e0e4a0b5d9"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+
+[extensions]
+FdthDataFramesExt = "DataFrames"
+FdthPlotsExt = "Plots"
 
 [compat]
+DataFrames = "1"
+Plots = "1"
+Printf = "1.10"
+Statistics = "1.10"
 julia = "1.10"
 
 [extras]
@@ -14,4 +27,3 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
 test = ["Test"]
-
