@@ -19,7 +19,7 @@ export fdt, make_fdt, fdt_cat
 export NumericalFDT, CategoricalFDT, MultipleFDT
 export Binning, BreaksMethod, Sturges, Scott, FD
 export mfv, amplitude, ta, sd
-export plot_series
+export plot_series, plot_types, PlotSeries
 
 include("binning.jl")
 include("types.jl")
@@ -29,6 +29,9 @@ include("categorical.jl")
 include("multiple.jl")
 include("auto.jl")
 include("plot_series.jl")
+include("plot_numerical.jl")
+include("plot_categorical.jl")
+include("plot_multiple.jl")
 include("display.jl")
 
 end # module

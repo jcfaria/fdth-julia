@@ -20,6 +20,9 @@ Cadeia: **VP-FDTH-JL**.
 ## P3 — Plots / print
 
 - [x] `plot_series` + extensão Plots
+- [x] Catálogo completo: 13 tipos numéricos + 16 categóricos (dotchart + Pareto)
+- [x] Ogivas (`cdp`, `cfp`, `cfpp`) sobre os limites de classe, como no R
+- [x] `plot_types`, `PlotSeries` (com `y2` do Pareto), grelha para `MultipleFDT`
 - [x] `summary` / `display` formatados
 - [ ] LaTeX export (adiado — não bloqueia STATghost)
 
@@ -29,6 +32,8 @@ Cadeia: **VP-FDTH-JL**.
 - [x] NEWS.md, CI workflow
 - [x] GitHub público
 - [x] Glossário PT-BR/EN adaptado para Julia
+- [x] Exemplos por concern + catálogo/galeria de plots
+- [x] Testes ampliados (~2400): binning, erros, invariantes aleatórias
 - [ ] Julia General
 
 ## Decisões

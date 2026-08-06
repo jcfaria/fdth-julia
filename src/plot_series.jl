@@ -1,49 +1,71 @@
 """
-Plotting helpers (backend-agnostic series). Used by the Plots.jl extension.
+Backend-agnostic plot series. `plot_series` returns the numbers a plot needs;
+the `Plots` extension (or any other backend) turns them into a figure.
 """
 
-"""Series for a numerical FDT plot. Returns (x, y, kind_label)."""
-function plot_series(t::NumericalFDT; type::Symbol=:fh)
-    mids = midpoints(t)
-    edges = t.binning.bins
-    h = t.binning.h
-    n = t.n
-    f = Float64.(t.counts)
-    rf = t.rf
-    rfp = t.rfp
-    cf = Float64.(t.cf)
-    cfp = t.cfp
-    dens = rf ./ h
-    cdens = cf ./ (n * h)
+"""
+    PlotSeries
 
-    type === :fh && return (mids, f, "Frequency", :bar, edges)
-    type === :fp && return (mids, f, "Frequency", :line, edges)
-    type === :rfh && return (mids, rf, "Relative frequency", :bar, edges)
-    type === :rfp && return (mids, rf, "Relative frequency", :line, edges)
-    type === :rfph && return (mids, rfp, "Relative frequency (%)", :bar, edges)
-    type === :rfpp && return (mids, rfp, "Relative frequency (%)", :line, edges)
-    type === :d && return (mids, dens, "Density", :bar, edges)
-    type === :cdh && return (mids, cdens, "Cumulative density", :bar, edges)
-    type === :cdp && return (mids, cdens, "Cumulative density", :line, edges)
-    type === :cfh && return (mids, cf, "Cumulative frequency", :bar, edges)
-    type === :cfp && return (mids, cf, "Cumulative frequency", :line, edges)
-    type === :cfph && return (mids, cfp, "Cumulative frequency (%)", :bar, edges)
-    type === :cfpp && return (mids, cfp, "Cumulative frequency (%)", :line, edges)
-    throw(ArgumentError("unknown plot type: $type (use fh, fp, rfh, rfp, rfph, rfpp, d, cdh, cdp, cfh, cfp, cfph, cfpp)"))
+Data for one FDT plot.
+
+- `x`: class midpoints / class limits (numerical) or categories (categorical)
+- `y`: values to draw
+- `ylab`: default axis label
+- `style`: `:bar`, `:line`, `:dot` or `:pareto`
+- `edges`: bin edges (numerical only, `nothing` for categorical)
+- `y2` / `y2lab`: secondary series, used by the Pareto chart
+
+Iterating a `PlotSeries` yields `(x, y, ylab, style, edges)`, so
+`x, y, ylab, style, edges = plot_series(t)` keeps working.
+"""
+struct PlotSeries{X}
+    x::Vector{X}
+    y::Vector{Float64}
+    ylab::String
+    style::Symbol
+    edges::Union{Nothing,Vector{Float64}}
+    y2::Union{Nothing,Vector{Float64}}
+    y2lab::Union{Nothing,String}
 end
 
-function plot_series(t::CategoricalFDT; type::Symbol=:fh)
-    x = t.categories
-    f = Float64.(t.counts)
-    type === :fh && return (x, f, "Frequency", :bar, nothing)
-    type === :fp && return (x, f, "Frequency", :line, nothing)
-    type === :rfh && return (x, t.rf, "Relative frequency", :bar, nothing)
-    type === :rfp && return (x, t.rf, "Relative frequency", :line, nothing)
-    type === :rfph && return (x, t.rfp, "Relative frequency (%)", :bar, nothing)
-    type === :rfpp && return (x, t.rfp, "Relative frequency (%)", :line, nothing)
-    type === :cfh && return (x, Float64.(t.cf), "Cumulative frequency", :bar, nothing)
-    type === :cfp && return (x, Float64.(t.cf), "Cumulative frequency", :line, nothing)
-    type === :cfph && return (x, t.cfp, "Cumulative frequency (%)", :bar, nothing)
-    type === :cfpp && return (x, t.cfp, "Cumulative frequency (%)", :line, nothing)
-    throw(ArgumentError("unknown categorical plot type: $type"))
+function PlotSeries(
+    x::AbstractVector,
+    y::AbstractVector{<:Real},
+    ylab::AbstractString,
+    style::Symbol,
+    edges=nothing;
+    y2=nothing,
+    y2lab=nothing,
+)
+    return PlotSeries(
+        collect(x),
+        collect(Float64, y),
+        String(ylab),
+        style,
+        edges === nothing ? nothing : collect(Float64, edges),
+        y2 === nothing ? nothing : collect(Float64, y2),
+        y2lab === nothing ? nothing : String(y2lab),
+    )
 end
+
+Base.length(::PlotSeries) = 5
+Base.getindex(s::PlotSeries, i::Integer) = getfield(s, Int(i))
+Base.iterate(s::PlotSeries, i::Int=1) = i > 5 ? nothing : (getfield(s, i), i + 1)
+
+function Base.show(io::IO, s::PlotSeries)
+    print(io, "PlotSeries(style=:$(s.style), n=$(length(s.y)), ylab=\"$(s.ylab)\")")
+end
+
+"""
+    plot_series(t; type=:fh)
+
+Series for one plot type. See `plot_types(t)` for the available codes.
+"""
+function plot_series end
+
+"""
+    plot_types(t)
+
+Plot type codes accepted by `plot_series` for this table, in R/Python order.
+"""
+function plot_types end

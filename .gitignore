@@ -5,6 +5,7 @@ Manifest.toml
 *.jl.mem
 docs/build/
 docs/site/
+examples/output/
 
 # OS / editor
 .DS_Store

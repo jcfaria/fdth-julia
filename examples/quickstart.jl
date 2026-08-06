@@ -1,5 +1,6 @@
 # Fdth.jl — STATghost / classroom script
 # julia --project=. examples/quickstart.jl
+# Focused scripts live next to this one; see examples/README.md
 
 using Fdth
 using Statistics
@@ -28,8 +29,11 @@ println("\nmeans: ", mean(m))
 println("\n=== 5. make_fdt rebuild ===")
 println(make_fdt([1, 2, 2, 2]; start=0, end_=40))
 
-println("\n=== 6. plot_series (optional: using Plots; plot(t; type=:fh)) ===")
-_, y, ylab, style, _ = plot_series(t; type=:fh)
-println("type=fh → $(length(y)) bars, ylab=$ylab, style=$style")
+println("\n=== 6. Plot series (13 numerical + 16 categorical types) ===")
+s = plot_series(t; type=:fh)
+println("fh → $(length(s.y)) bars, ylab=$(s.ylab), style=$(s.style)")
+println("numerical types  : ", join(plot_types(t), ", "))
+println("categorical types: ", join(plot_types(fdt_cat(["a", "b", "a"])), ", "))
+println("with Plots installed: using Plots; plot(t; type=:cfp)")
 
-println("\nDone.")
+println("\nDone. More: examples/README.md")

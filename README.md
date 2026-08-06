@@ -3,7 +3,7 @@
 Public repository for a Julia port of:
 
 | Language | Project |
-|----------|---------|
+| --- | --- |
 | R | [jcfaria/fdth](https://github.com/jcfaria/fdth) (CRAN) |
 | Python | [jcfaria/fdth-python](https://github.com/jcfaria/fdth-python) (`pip install fdth`) |
 | Julia | [jcfaria/fdth-julia](https://github.com/jcfaria/fdth-julia) (`Fdth`) — GitHub public; Julia General later |
@@ -15,15 +15,20 @@ Target classroom / **STATghost** validation. Julia General registration follows 
 Local **`0.2.0`** — teachable core ready for **final STATghost** testing:
 
 | API | Role |
-|-----|------|
+| --- | --- |
 | `fdt` | numerical, auto categorical, matrix/dict → `MultipleFDT` |
 | `fdt_cat` / `make_fdt` | categorical / rebuild |
 | `mean` … `mfv` / `amplitude` | grouped summaries |
 | `summary` / `display` | formatted classroom tables |
-| `plot_series` / `plot` | Plots.jl extension |
+| `plot_series` / `plot_types` / `plot` | 13 numerical + 16 categorical plot types (Plots.jl extension) |
 | `fdt(df; by=…)` | DataFrames.jl extension |
 
-See [`NEWS.md`](NEWS.md), [`w_todo/`](w_todo/), and glossary [`acronyms/`](acronyms/).
+Plot codes follow R: numerical `fh`, `fp`, `rfh`, `rfp`, `rfph`, `rfpp`, `d`,
+`cdh`, `cdp`, `cfh`, `cfp`, `cfph`, `cfpp`; categorical bars/polygons/dotcharts
+(`fb`…`cfpd`) plus the Pareto chart `pa`.
+
+See [`NEWS.md`](NEWS.md), [`examples/`](examples/README.md), [`w_todo/`](w_todo/),
+and glossary [`acronyms/`](acronyms/).
 
 ## Develop
 
@@ -46,8 +51,12 @@ fdt([1 10; 2 20; 3 30]; colnames=["x","y"], by=["A","A","B"])
 ```
 
 ```text
-julia --project=. examples/quickstart.jl
+julia --project=. examples/quickstart.jl        # one-page tour
+julia --project=. examples/plot_catalogue.jl    # every plot type, no backend
+julia --project=. examples/plots_gallery.jl     # figures (needs Plots)
 ```
+
+More scripts: [`examples/README.md`](examples/README.md).
 
 ## Design notes
 
